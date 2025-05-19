@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js"></script>
+    <script>
+              function getNumber(){
+                document.getElementById("label1").innerText = getComputerChoice()
+              }
+              console.log(getComputerChoice());
+    </script>
 </head>
 <body>
-    <script>
-        
-    </script>
+  <button type="button" onclick="getNumber()">Play</button>
+  <span id="label1" >aaa</span>
 </body>
 </html>

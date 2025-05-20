@@ -6,14 +6,50 @@
     <title>Document</title>
     <script src="script.js"></script>
     <script>
+              let humanVictory = 0;
+              let computerVictory = 0;
+
               function getNumber(){
-                document.getElementById("label1").innerText = getComputerChoice()
+                let humanValue = prompt(`rock-0, paper-1, scissors-2`,`0`);
+                let computerValue = getComputerChoice();
+                document.getElementById("label1").innerText = computerValue
+                document.getElementById("label2").innerHTML = humanValue;
+
+                getWinner(computerValue,humanValue);
+
+                document.getElementById("humanScore").innerText = humanVictory
+                document.getElementById("computerScore").innerHTML = computerVictory;
+
+
               }
-              console.log(getComputerChoice());
+
+              function getWinner(computerChoice, humanChoice){
+                
+                if (computerChoice > humanChoice)
+                    computerVictory += 1;
+                else  
+                    humanVictory += 1;
+                  
+              }
+                  
+              /*console.log(getComputerChoice());*/
     </script>
 </head>
 <body>
   <button type="button" onclick="getNumber()">Play</button>
-  <span id="label1" >aaa</span>
+  <p></p>
+  <span>Computer choice:</span>
+  <span id="label1" ></span>
+  <p></p>
+  <span>Human choice:</span>
+  <span id="label2" ></span>
+  <p></p>
+  <span>Scores</span>
+  <p></p>
+  <span>Human:</span>
+  <span id="humanScore"></span>
+  <p></p>
+  <span>Computer:</span>
+  <span id="computerScore"></span>
 </body>
 </html>

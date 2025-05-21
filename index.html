@@ -6,32 +6,39 @@
     <title>Document</title>
     <script src="script.js"></script>
     <script>
-              let humanVictory = 0;
-              let computerVictory = 0;
+              let humanScore = 0;
+              let computerScore = 0;
 
-              function getNumber(){
+              function getHumanChoice(){
                 let humanValue = prompt(`rock-0, paper-1, scissors-2`,`0`);
                 let computerValue = getComputerChoice();
-                document.getElementById("label1").innerText = computerValue
-                document.getElementById("label2").innerHTML = humanValue;
+
+                showChoice(computerValue, humanValue);
 
                 getWinner(computerValue,humanValue);
 
-                document.getElementById("humanScore").innerText = humanVictory
-                document.getElementById("computerScore").innerHTML = computerVictory;
+                showScore();
+             }
+             function showChoice(computerValue, humanValue){
+                document.getElementById("label1").innerText = computerValue
+                document.getElementById("label2").innerHTML = humanValue;
+             }
+             function showScore (){
+                document.getElementById("humanScore").innerText = humanScore
+                document.getElementById("computerScore").innerHTML = computerScore;
              }
 
               function getWinner(computerChoice, humanChoice){
                 
                 if (computerChoice != humanChoice){ 
                   if ((computerChoice === 0) && (parseInt(humanChoice) === 2))
-                    computerVictory += 1;
+                    computerScore += 1;
                   else if ((computerChoice === 1) && (parseInt(humanChoice) === 0))
-                    computerVictory += 1;
-                  else if ((computerChoice === 2) && (parseInt(humanChoice) === 1))
-                    computerVictory += 1;
+                    computerScore += 1;
+                  else if ((computerChoice === 2) && (humanChoice === 1))
+                    computerScore += 1;
                   else
-                    humanVictory +=1;
+                    humanScore +=1;
                 }
                 else{  
                     return;
@@ -42,7 +49,7 @@
     </script>
 </head>
 <body>
-  <button type="button" onclick="getNumber()">Play</button>
+  <button type="button" onclick="getHumanChoice()">Play</button>
   <p></p>
   <span>Computer choice:</span>
   <span id="label1" ></span>

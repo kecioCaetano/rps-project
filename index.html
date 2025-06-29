@@ -4,28 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
-    <script>
-              let humanScore = 0;
-              let computerScore = 0;
-
-              function getHumanChoice(){
-                let humanChoice = prompt(`rock-0, paper-1, scissors-2`,`0`);
-                let computerChoice = getComputerChoice();
-
-                showChoice(computerChoice, humanChoice);
-
-                playRound(computerChoice,humanChoice);
-
-                showScore();
-             }
-                  
-              /*console.log(getComputerChoice());*/
-    </script>
+   
+    
 </head>
 <body>
+  <button id="rock">Rock</button>
+  <button id="paper">Paper</button>
+  <button id="scissor">Scissor</button>
+  <div id="display"></div>
+  <!--
   <button type="button" onclick="getHumanChoice()">Play</button>
-  <p></p>
+    <p></p>
   <span>Computer choice:</span>
   <span id="label1" ></span>
   <p></p>
@@ -40,6 +29,25 @@
   <span>Computer:</span>
   <span id="computerScore"></span>
   <p></p>
-  <span>rock-0, paper-1, scissors-2</span>
+  <span>rock-0, paper-1, scissors-2</span> -->
 </body>
+<script>
+              let humanScore = 0;
+              let computerScore = 0;
+
+              function getHumanChoice(){
+                let humanChoice = prompt(`rock-0, paper-1, scissors-2`,`0`);
+                let computerChoice = getComputerChoice();
+
+                showChoice(computerChoice, humanChoice);
+
+                playRound(computerChoice,humanChoice);
+
+                showScore();
+             }
+       
+                  
+              /*console.log(getComputerChoice());*/
+    </script>
+     <script src="script.js"></script>
 </html>

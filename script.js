@@ -11,19 +11,57 @@ function showScore (){
     document.getElementById("computerScore").innerHTML = computerScore;
 }
 
-function getWinner(computerChoice, humanChoice){
+function playRound(computerChoice, humanChoice){
 
-if (computerChoice != humanChoice){ 
-    if ((computerChoice === 0) && (parseInt(humanChoice) === 2))
-    computerScore += 1;
-    else if ((computerChoice === 1) && (parseInt(humanChoice) === 0))
-    computerScore += 1;
-    else if ((computerChoice === 2) && (humanChoice === 1))
-    computerScore += 1;
-    else
-    humanScore +=1;
+    let winner = 0;
+    if (computerChoice != humanChoice){ 
+        if ((computerChoice === 0) && (parseInt(humanChoice) === 2))
+        computerScore += 1;
+        else if ((computerChoice === 1) && (parseInt(humanChoice) === 0))
+        computerScore += 1;
+        else if ((computerChoice === 2) && (humanChoice === 1))
+        computerScore += 1;
+        else
+        humanScore +=1; winner = 1;
+
+        displayResults(computerChoice, humanChoice, winner);
+        return winner;
+    }
+    else{  
+        displayResults(computerChoice, humanChoice, 2)
+        return 2;
+    }
+
+    
 }
-else{  
-    return;
+
+function displayResults (computerChoice, humanChoice, winner){
+    const div = document.querySelector("#display");
+    const h4 = document.createElement("h4");
+    h4.textContent = `Computer choice: ${String(computerChoice)} and your choice: ${String(humanChoice)}`;
+    const h4Winner = document.createElement("h4");
+    let strWinner = "Winner: ";
+    if (winner === 0) strWinner += 'Computer';
+    if (winner === 1) strWinner += 'Human';
+    if (winner === 2) strWinner += 'Tied';
+         
+    h4Winner.textContent = strWinner;
+    div.appendChild(h4);
+    div.appendChild(h4Winner);
 }
-}
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor");
+
+rock.addEventListener("click", () =>{
+    playRound(getComputerChoice(), 0);
+})
+
+paper.addEventListener("click", () => {
+    playRound(getComputerChoice(), 1);
+})
+
+scissor.addEventListener("click", () =>{
+    playRound(getComputerChoice(), 2);
+})
